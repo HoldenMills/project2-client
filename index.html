@@ -3,16 +3,23 @@
 
 <style>
   body {
-    background-image: url("DSC_0830 (2).JPG");
+    /*background-image: url("DSC_0830 (2).JPG");*/
   }
 </style>
 <head>
-  <meta charset="utf-8">
+<!--   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-</head>
+ -->
+  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+  <script src="http://ttt.wdibos.com/js/resource-watcher-0.1.0.js" type="text/javascript" defer charset="utf-8"></script>
+  <script src="api/ajax.js" type="text/javascript" defer charset="utf-8"></script>
+  <script src="api/user_session.js" type="text/javascript" defer charset="utf-8"></script>
+
+ </head>
+
 <body>
 
 
@@ -35,10 +42,12 @@
     </div>
     <div class="Profile">
       <h3>Login</h3>
-      <input id="email" type="text" value="" size="15" placeholder="e-mail">
-      <input id="password" type="password" size="10" value="" placeholder="password">
+      <form id="register">
+      <input name="email" type="text" value="" size="15" placeholder="e-mail">
+      <input name="password" type="password" size="10" value="" placeholder="password">
       <input id="login" type="button" value="Login">
-      <input id="register" type="button" value="Register">
+      <input id="register" type="submit" value="Register">
+      </form>
       <br>
       <label for="id">Id:</label>
       <input id="id" type="text" size="5" placeholder="">

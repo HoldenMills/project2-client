@@ -1,6 +1,6 @@
 var tttapi = {
  gameWatcher: null,
- ttt: 'http://ttt.wdibos.com',
+ ttt: 'http://www.localhost:3000',
 
  ajax: function(config, cb) {
    $.ajax(config).done(function(data, textStatus, jqxhr) {
@@ -14,7 +14,7 @@ var tttapi = {
    this.ajax({
      method: 'POST',
      // url: 'http://httpbin.org/post',
-     url: this.ttt + '/users',
+     url: this.ttt + '/register',
      contentType: 'application/json; charset=utf-8',
      data: JSON.stringify(credentials),
      dataType: 'json'
@@ -31,3 +31,4 @@ var tttapi = {
      dataType: 'json'
    }, callback);
  },
+};
