@@ -21,10 +21,6 @@ $(document).ready (function() {
     return wrapper;
   };
 
-// $('#result').val(JSON.stringify(data, null, 4));
-//   console.log(data);
-// });
-
   $('#register').on('submit', function(e) {
     var credentials = wrap('credentials', form2object(this));
     api.register(credentials, cb.registerCB);
@@ -38,13 +34,9 @@ $(document).ready (function() {
         cb.loginCB;
         return;
       }
-    // callback(null, data);
-    // // $('.token').val(data.user.token);
-    // game.token = data.user.token;
-    // console.log(game.token);
-    // $('.player-messages').text('Welcome, user #' + data.user.id);
     e.preventDefault();
     url.login(credentials, cb);
     };
   });
 });
+
