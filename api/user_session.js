@@ -12,14 +12,30 @@ $(document).ready (function() {
         data[$(this).attr('name')] = $(this).val();
       }
     });
+    return data;
   };
-  return data;
-  });
 
   var wrap = function wrap(root, formData) {
     var wrapper = {};
     wrapper[root] = formData;
     return wrapper;
+  };
+
+  var callback = function callback(error, data) {
+    if (error) {
+      console.error(error);
+      $('#result').val('status: ' + error.status + ', error: ' +error.error);
+      return;
+    }
+    $('#result').val(JSON.stringify(data, null, 4));
+    console.log(data);
+  };
+
+  var wrap = function wrap(root, formData) {
+    var wrapper = {};
+    wrapper[root] = formData;
+    return wrapper;
+  };
 
   $('#register').on('submit', function(e) {
     var credentials = wrap('credentials', form2object(this));
@@ -38,5 +54,5 @@ $(document).ready (function() {
     url.login(credentials, cb);
     };
   });
-};
+});
 
