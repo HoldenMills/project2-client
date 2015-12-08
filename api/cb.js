@@ -1,12 +1,6 @@
+'use strict';
 
 var cb = {
-  // callback: function callback(error, data) {
-  //   if (error) {
-  //     console.error(error);
-  //     $('#result').val('status: ' + error.status + ', error: ' +error.error);
-  //   return;
-  //   }
-  // }
 
   registerCB: function(err, data){
     if (err) {
@@ -39,6 +33,16 @@ var cb = {
       console.error(err);
     } else {
       console.log("success:", data);
+    }
+  },
+
+ mainSearchCB: function(err, data){
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(data);
+      var rowHTML = cb.allProdsTemplate({products: data});
+      $("#allProdsPage").html(rowHTML);
     }
   },
 };

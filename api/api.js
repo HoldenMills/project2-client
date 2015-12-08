@@ -1,8 +1,9 @@
-'use strict';
+'use strict'
 
 var api = {
 
-  url: 'http://localhost:3000',
+url: 'http://www.localhost:3000',
+// url: 'http://httpbin.org/post',
 
   ajax: function(config, cb) {
     $.ajaxSetup({
@@ -10,144 +11,36 @@ var api = {
         withCredentials: true
       }
     });
+  },
+
+  ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
-        cb(null, data);
-      }).fail(function(jqxhr, status, error) {
-        cb({jqxher: jqxhr, status: status, error: error});
-      });
-    },
+      cb(null, data);
+    }).fail(function(jqxhr, status, error) {
+      cb({jqxher: jqxhr, status: status, error: error});
+    });
+  },
 
-  // Unauthenticated actions
-  register: function(credentials, callback) {
+ register: function register(credentials, callback) {
     this.ajax({
       method: 'POST',
-      url: this.url + '/signup',
-      contentType: 'application/json',
-      data: JSON.stringify(credentials)
-      //dataType: 'json'
-    }, callback);
-  },
+      // url: ,
+      url: this.url + '/register',
+      contentType: 'application/json; charset=utf-8',
+      data: JSON.stringify(credentials),
+      dataType: 'json'
+   }, callback);
+ },
 
-  login: function(credentials, callback) {
-    this.ajax({
-      method: 'POST',
-      url: this.url + '/login',
-      contentType: 'application/json',
-      data: JSON.stringify(credentials)
-      //dataType: 'json'
-    }, callback);
-  },
-
-  getUser: function(callback) {
-    this.ajax({
-      method: 'GET',
-      url: this.url + '/users',
-      contentType: 'application/json'
-      //dataType: 'json'
-    }, callback);
-  },
-
-  logout: function(callback) {
-    this.ajax({
-      method: 'POST',
-      url: this.url + '/logout',
-      contentType: 'application/json'
-      //dataType: 'json'
-    }, callback);
-  },
-
-  indexProducts: function(callback) {
-    this.ajax({
-      method: 'GET',
-      url: this.url + '/products',
-      contentType: 'application/json'
-      //dataType: 'json'
-    }, callback);
-  },
-
-  showProduct: function(id, callback) {
-    this.ajax({
-      method: 'GET',
-      url: this.url + '/products/' + id,
-      contentType: 'application/json'
-      //dataType: 'json'
-    }, callback);
-  },
-
-  showTransaction: function(query, callback) {
-    this.ajax({
-      method: 'GET',
-      url: this.url + '/transactions?status=' + query,
-      contentType: 'application/json'
-      //dataType: 'json'
-    }, callback);
-  },
-
-  createTransaction: function(data, callback) {
-    this.ajax({
-      method: 'POST',
-      url: this.url + '/transactions',
-      contentType: 'application/json',
-      data: JSON.stringify(data)
-      //dataType: 'json'
-    }, callback);
-  },
-
-  updateTransaction: function(id, data, callback) {
-    this.ajax({
-      method: 'PATCH',
-      url: this.url + '/transactions/' + id,
-      contentType: 'application/json',
-      data: JSON.stringify(data)
-      //dataType: 'json'
-    }, callback);
-  },
-
-  deleteTransaction: function(id, callback) {
-    this.ajax({
-      method: 'DELETE',
-      url: this.url +'/transactions/' + id,
-      contentType: 'application/json',
-      //dataType: 'json'
-    }, callback);
-  },
-
-  mainSearch: function(query, callback) {
-    this.ajax({
-      method: 'GET',
-      url: this.url + '/products?q=' + query,
-      contentType: 'application/json'
-      //dataType: 'json'
-    }, callback);
-  },
-
-  pClicks: function(id, callback) {
-    this.ajax({
-      method: 'PATCH',
-      url: this.url + '/products/' + id + '?click=1',
-      contentType: 'application/json'
-      //dataType: 'json'
-    }, callback);
-  },
-
-  mostClicks: function(callback) {
-    this.ajax({
-      method: 'GET',
-      url: this.url + '/products' + '?c=true',
-      contentType: 'application/json'
-      //dataType: 'json'
-    }, callback);
-  },
-
-  stripe: function (data, callback) {
-    this.ajax({
-      method: 'POST',
-      url: this.url + '/charge',
-      contentType: 'application/json',
-      data: JSON.stringify(data)
-      //dataType: 'json'
-    }, callback);
+ login: function login(credentials, callback) {
+   this.ajax({
+     method: 'POST',
+     // url: 'http://httpbin.org/post',
+     url: this.url + '/login',
+     contentType: 'application/json; charset=utf-8',
+     data: JSON.stringify(credentials),
+     dataType: 'json'
+   }, callback);
   }
-
 };
 

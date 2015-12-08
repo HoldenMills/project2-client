@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+require_relative 'proj2/project2-api/'
 <style>
   body {
     /*background-image: url("DSC_0830 (2).JPG");*/
@@ -11,7 +11,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script src="api/ajax.js"></script>
   <script src="api/cb.js"></script>
@@ -62,7 +61,8 @@
       </div>
       <div id="park_list" hidden>
         <select>
-          <option value="Adam's National Historical Park">Adam's National Historical Park</option>
+          <option value=<%= @park.name %></option>
+          <option value="Adam's National Historical Park">Adams National Historical Park</option>
           <option value="Appalacian National Scenic Trail">Appalacian National Scenic Trail</option>
           <option value="Blackstone River Valley National Heritage Corridor">Blackstone River Valley National Heritage  Corridor</option>
           <option value="Boston National Historical Park">Boston National Historical Park</option>
@@ -72,7 +72,7 @@
           <option value="Essex National Heritage Area">Essex National Heritage Area</option>
           <option value="Frederick Law Olmsted National Historic Site">Frederick Law Olmsted National Historic Site</option>
           <option value="John Fitzgerald Kennedy National Historic Site">John Fitzgerald Kennedy National Historic Site</option>
-          <option value="Longfellow House Washington's Headquarters National Historic Site">Longfellow House Washington's Headquarters National Historic Site</option>
+          <option value="Longfellow House Washingtons Headquarters National Historic Site">Longfellow House Washingtons Headquarters National Historic Site</option>
           <option value="Lowell National Historical Park">Lowell National Historical Park</option>
           <option value="Minute Man National Historical Park">Minute Man National Historical Park</option>
           <option value="New Bedford Whaling National Historical Park">New Bedford Whaling National Historical Park</option>
