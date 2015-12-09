@@ -2,7 +2,6 @@
 
 var url = 'http://www.localhost:3000';
 //$(document).ready(...
-$(document).ready (function() {
 
   var form2object = function(form) {
     var data = {};
@@ -21,7 +20,7 @@ $(document).ready (function() {
     return wrapper;
   };
 
-  var callback = function callback(error, data) {
+  var cb = function callback(error, data) {
     if (error) {
       console.error(error);
       $('#result').val('status: ' + error.status + ', error: ' +error.error);
@@ -31,6 +30,11 @@ $(document).ready (function() {
     console.log(data);
   };
 
+$(document).ready (function() {
+
+  // ux.login();
+  // cb.init();
+
   $('#register').on('submit', function(e) {
     var credentials = wrap('credentials', form2object(this));
     api.register(credentials, cb.registerCB);
@@ -38,14 +42,16 @@ $(document).ready (function() {
   });
 
   $('#login').on('submit', function(e) {
+    $('.enter').hide(900);
+    $('.park_list').show(800);
     var credentials = wrap('credentials', form2object(this));
     var cb = function cb(error, data) {
       if (error) {
         cb.loginCB;
         return;
       }
-    e.preventDefault();
     url.login(credentials, cb);
+    e.preventDefault();
     };
   });
 });

@@ -26,6 +26,7 @@ var cb = {
     } else {
       console.log("login response:", data);
     }
+    ux.afterLogin();
   },
 
   logoutCB: function(err, data) {
