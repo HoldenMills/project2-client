@@ -1,7 +1,6 @@
 'use strict';
 
 var url = 'http://www.localhost:3000';
-//$(document).ready(...
 
   var form2object = function(form) {
     var data = {};
@@ -20,20 +19,7 @@ var url = 'http://www.localhost:3000';
     return wrapper;
   };
 
-  var cb = function callback(error, data) {
-    if (error) {
-      console.error(error);
-      $('#result').val('status: ' + error.status + ', error: ' +error.error);
-      return;
-    }
-    $('#result').val(JSON.stringify(data, null, 4));
-    console.log(data);
-  };
-
 $(document).ready (function() {
-
-  // ux.login();
-  // cb.init();
 
   $('#register').on('submit', function(e) {
     var credentials = wrap('credentials', form2object(this));
@@ -42,16 +28,14 @@ $(document).ready (function() {
   });
 
   $('#login').on('submit', function(e) {
-    $('.enter').hide(900);
-    $('.park_list').show(800);
     var credentials = wrap('credentials', form2object(this));
-    var cb = function cb(error, data) {
-      if (error) {
-        cb.loginCB;
-        return;
-      }
-    url.login(credentials, cb);
+    api.login(credentials, cb.loginCB);
     e.preventDefault();
-    };
   });
+
+  // clickHandler.on(something, function(){
+  //   api.something(...,callback);
+  //   in your callback, set the ux view
+  // });
+
 });

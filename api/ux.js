@@ -2,9 +2,10 @@
 
 var ux = {
 
-  login: function() {
-    $('#profile').hide(900);
+  afterLogin: function() {
+    $(".enter").hide(900);
     $('#park_list').show(800);
+    $('#my_profile').show(800);
   }
 };
 // $('#future').on('click', function(){

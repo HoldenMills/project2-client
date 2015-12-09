@@ -25,8 +25,8 @@ var cb = {
       console.error("error", err);
     } else {
       console.log("login response:", data);
+      ux.afterLogin();
     }
-    ux.afterLogin();
   },
 
   logoutCB: function(err, data) {

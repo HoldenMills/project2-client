@@ -15,10 +15,10 @@
    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <script src="project2-client/api/ajax.js"></script>
-  <script src="project2-client/api/cb.js"></script>
-  <script src="project2-client/api/click_handler.js"></script>
-  <script src="project2-client/api/ux.js"></script>
+  <script src="api/ajax.js"></script>
+  <script src="api/cb.js"></script>
+  <script src="api/click_handler.js"></script>
+  <script src="api/ux.js"></script>
 
 </head>
 
@@ -55,12 +55,12 @@
           <input id="login" type="submit" value="Login">
         </form>
     </div>
-    <div class="profile" hidden>
+
       <div class="col-sm-4">
-        <h3>My Profile</h3>
-          <div id="my_profile">
-            <p>Planning a visit?  Add it to your <button id="future">Future Trip List</button></p>
-            <p>Feeling reminiscent? View your <button id="past">Past Trips</button></p>
+          <div id="my_profile" hidden>
+            <h3>My Profile</h3>
+              <p>Planning a visit?  Add it to your <button id="future">Future Trip List</button></p>
+              <p>Feeling reminiscent? View your <button id="past">Past Trips</button></p>
           </div>
       </div>
       <div id="park_list" hidden>
@@ -87,13 +87,7 @@
           <option value="Washington-Rochambeau National Historic Trail">Washington-Rochambeau National Historic Trail</option>
         </select>
       </div>
-    </div>
-     <!--  <br>
-      <label for="id">Id:</label>
-      <input id="id" type="text" size="5" placeholder="">
-      <label for="token">Token:</label>
-      <input id="token" size="30">
-      <br> -->
+
   </div>
 </div>
 
