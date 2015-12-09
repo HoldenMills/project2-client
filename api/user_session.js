@@ -1,7 +1,9 @@
 'use strict';
 
+var url = 'http://www.localhost:3000';
 //$(document).ready(...
-$(function() {
+$(document).ready (function() {
+
   var form2object = function(form) {
   var data = {};
   $(form).children().each(function(index, element) {
@@ -13,29 +15,29 @@ $(function() {
   return data;
   };
 
-var wrap = function wrap(root, formData) {
-  var wrapper = {};
-  wrapper[root] = formData;
-  return wrapper;
-};
+  var wrap = function wrap(root, formData) {
+    var wrapper = {};
+    wrapper[root] = formData;
+    return wrapper;
+  };
 
 // $('#result').val(JSON.stringify(data, null, 4));
 //   console.log(data);
 // });
 
-$('#register').on('submit', function(e) {
-  var credentials = wrap('credentials', form2object(this));
-  url.register(credentials, cb.registerCB);
-  e.preventDefault();
-});
+  $('#register').on('submit', function(e) {
+    var credentials = wrap('credentials', form2object(this));
+    api.register(credentials, cb.registerCB);
+    e.preventDefault();
+  });
 
-$('#login').on('submit', function(e) {
-  var credentials = wrap('credentials', form2object(this));
-  var cb = function cb(error, data) {
-    if (error) {
-      cb.loginCB;
-      return;
-    }
+  $('#login').on('submit', function(e) {
+    var credentials = wrap('credentials', form2object(this));
+    var cb = function cb(error, data) {
+      if (error) {
+        cb.loginCB;
+        return;
+      }
     // callback(null, data);
     // // $('.token').val(data.user.token);
     // game.token = data.user.token;
