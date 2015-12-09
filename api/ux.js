@@ -1,8 +1,8 @@
-'use strict';
+// 'use strict';
 
-var ux = {
+// var ux = {
 
-$('#future').on('click', function(){
-  $('#park_list').show(500);
-  $('#my_profile').hide(400);
-});
+// $('#future').on('click', function(){
+//   $('#park_list').show(500);
+//   $('#my_profile').hide(400);
+// });
