@@ -1,8 +1,8 @@
 'use strict'
-
+url: 'http://www.localhost:3000';
 var api = {
 
-url: 'http://www.localhost:3000',
+
 
  ajax: function(config, cb) {
    $.ajax(config).done(function(data, textStatus, jqxhr) {
