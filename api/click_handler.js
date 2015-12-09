@@ -31,12 +31,6 @@ $(document).ready (function() {
     console.log(data);
   };
 
-  var wrap = function wrap(root, formData) {
-    var wrapper = {};
-    wrapper[root] = formData;
-    return wrapper;
-  };
-
   $('#register').on('submit', function(e) {
     var credentials = wrap('credentials', form2object(this));
     api.register(credentials, cb.registerCB);
