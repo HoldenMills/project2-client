@@ -1,6 +1,8 @@
-var tttapi = {
- gameWatcher: null,
- ttt: 'http://www.localhost:3000',
+'use strict'
+
+var api = {
+
+url: 'http://www.localhost:3000',
 
  ajax: function(config, cb) {
    $.ajax(config).done(function(data, textStatus, jqxhr) {
@@ -14,7 +16,7 @@ var tttapi = {
    this.ajax({
      method: 'POST',
      // url: 'http://httpbin.org/post',
-     url: this.ttt + '/register',
+     url: this.url + '/register',
      contentType: 'application/json; charset=utf-8',
      data: JSON.stringify(credentials),
      dataType: 'json'
@@ -25,7 +27,7 @@ var tttapi = {
    this.ajax({
      method: 'POST',
      // url: 'http://httpbin.org/post',
-     url: this.ttt + '/login',
+     url: this.url + '/login',
      contentType: 'application/json; charset=utf-8',
      data: JSON.stringify(credentials),
      dataType: 'json'

@@ -1,15 +1,8 @@
 'use strict';
 
-var game = {
-id: null,
-board: [],
-token: null,
-over: false
-};
-
 //$(document).ready(...
 $(function() {
-var form2object = function(form) {
+  var form2object = function(form) {
   var data = {};
   $(form).children().each(function(index, element) {
     var type = $(this).attr('type');
@@ -18,7 +11,7 @@ var form2object = function(form) {
     }
   });
   return data;
-};
+  };
 
 var wrap = function wrap(root, formData) {
   var wrapper = {};
@@ -26,19 +19,13 @@ var wrap = function wrap(root, formData) {
   return wrapper;
 };
 
-var callback = function callback(error, data) {
-  if (error) {
-    console.error(error);
-    $('#result').val('status: ' + error.status + ', error: ' +error.error);
-    return;
-  }
-  $('#result').val(JSON.stringify(data, null, 4));
-  console.log(data);
-};
+// $('#result').val(JSON.stringify(data, null, 4));
+//   console.log(data);
+// });
 
 $('#register').on('submit', function(e) {
   var credentials = wrap('credentials', form2object(this));
-  tttapi.register(credentials, callback);
+  url.register(credentials, cb.registerCB);
   e.preventDefault();
 });
 
@@ -46,17 +33,16 @@ $('#login').on('submit', function(e) {
   var credentials = wrap('credentials', form2object(this));
   var cb = function cb(error, data) {
     if (error) {
-      callback(error);
+      cb.loginCB;
       return;
     }
-    callback(null, data);
-    // $('.token').val(data.user.token);
-    game.token = data.user.token;
-    console.log(game.token);
-    $('.player-messages').text('Welcome, user #' + data.user.id);
-  };
-  e.preventDefault();
-  tttapi.login(credentials, cb);
-});
-
+    // callback(null, data);
+    // // $('.token').val(data.user.token);
+    // game.token = data.user.token;
+    // console.log(game.token);
+    // $('.player-messages').text('Welcome, user #' + data.user.id);
+    e.preventDefault();
+    url.login(credentials, cb);
+    };
+  });
 });
