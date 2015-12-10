@@ -40,11 +40,19 @@ var cb = {
     }
   },
 
-  getFutureTripsCB: function(data) {
+  // getFutureTripsCB: function(err, data) {
+  //   if (err) {
+  //     console.log(err);
+  //   } else {
+  //     console.log(data);
+  //   }
+  // },
+
+  newFutureTripCB: function(err, data) {
     if (err) {
       console.log(err);
     } else {
-      console.log(data);
+      console.log('working',data);
     }
   },
 

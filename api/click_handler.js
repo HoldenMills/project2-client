@@ -33,9 +33,15 @@ $(document).ready (function() {
     e.preventDefault();
   });
 
-  $('#future').on('click', function(e){
-    // var futureList =
-    api.newFutureTrips(cb.newFutureTripsCB);
+  // $('#future').on('click', function(e){
+  //   var futureTripList = wrap('future_park_params', form2object(this));
+  //   api.getFutureTrips('futureTripList', cb.newFutureTripCB);
+  //   e.preventDefault();
+  // });
+
+  $('#futureList').on('submit', function(e){
+    var futureTripList = wrap('future_park_params', form2object(this));
+    api.newFutureTrip('futureTripList', cb.newFutureTripCB);
     e.preventDefault();
   });
   // clickHandler.on(something, function(){
