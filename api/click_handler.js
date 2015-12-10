@@ -35,7 +35,7 @@ $(document).ready (function() {
 
   $('#future').on('click', function(e){
     // var futureList =
-    api.futureTrip(cb.futureTripCB);
+    api.newFutureTrips(cb.newFutureTripsCB);
     e.preventDefault();
   });
   // clickHandler.on(something, function(){

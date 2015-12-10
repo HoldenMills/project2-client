@@ -1,5 +1,7 @@
 'use strict';
 
+var token;
+
 var cb = {
 
   registerCB: function(err, data){
@@ -24,6 +26,7 @@ var cb = {
     if (err) {
       console.error("error", err);
     } else {
+      token = data.user.token;
       console.log("login response:", data);
       ux.afterLogin();
     }
@@ -37,8 +40,12 @@ var cb = {
     }
   },
 
-  futureTripCB: function() {
-    console.log("Working?");
+  getFutureTripsCB: function(data) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(data);
+    }
   },
 
  mainSearchCB: function(err, data){

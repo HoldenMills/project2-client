@@ -24,6 +24,8 @@
 
 <body>
 
+
+<!--homepage-->
 <div class="container">
   <div class="jumbotron">
     <h1>My National Parks</h1>
@@ -55,14 +57,28 @@
           <input id="login" type="submit" value="Login">
         </form>
     </div>
-
-      <div class="col-sm-4">
-          <div id="my_profile" hidden>
-            <h3>My Profile</h3>
-              <p>Planning a visit?  Add it to your <button id="future">Future Trip List</button></p>
-              <p>Feeling reminiscent? View your <button id="past">Past Trips</button></p>
-          </div>
+    <div class="col-sm-4">
+      <div id="my_profile" hidden>
+        <h3>My Profile</h3>
+          <p>Planning a visit?  Add it to your <button id="future">Future Trip List</button></p>
+          <p>Feeling reminiscent? View your <button id="past">Past Trips</button></p>
       </div>
+    </div>
+
+    <!--form to add new Future Trip-->
+      <form id="newFuture" hidden>
+        <input name="reason" type="text" value="" size="30" placeholder="Why do you want to go here?">
+        <input name="startDate" type="password" size="30" value="" placeholder="When will your trip start?">
+        <input name="endDate" type="password" size="30" value="" placeholder="When will your trip end?">
+        <input id="futureList" type="submit" value="">
+      </form>
+
+    <div>
+
+
+    </div>
+
+
       <div id="park_list" hidden>
         <select>
           <option value=<%= @park.name %></option>

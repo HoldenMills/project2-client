@@ -6,13 +6,13 @@ url: 'http://www.localhost:3000',
 
 // url: 'http://httpbin.org/post',
 
-  ajax: function(config, cb) {
-    $.ajaxSetup({
-      xhrFields: {
-        withCredentials: true
-      }
-    });
-  },
+  // ajax: function(config, cb) {
+  //   $.ajaxSetup({
+  //     xhrFields: {
+  //       withCredentials: true
+  //     }
+  //   });
+  // },
 
   ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
@@ -44,15 +44,32 @@ url: 'http://www.localhost:3000',
    }, callback);
   },
 
-  futureTrip: function futureTrip(callback) {
+  getFutureTrips: function getFutureTrip(callback) {
     this.ajax({
-     method: 'GET',
-     // url: 'http://httpbin.org/post',
-     url: this.url + '/future_trip',
-     contentType: 'application/json; charset=utf-8',
-     data: JSON.stringify(callback),
-     dataType: 'json'
-   }, callback);
+      method: 'GET',
+      // url: 'http://httpbin.org/post',
+      url: this.url + '/future_trips',
+      // contentType: 'application/json; charset=utf-8',
+      // data: JSON.stringify(callback),
+      dataType: 'json',
+      headers: {
+        Authorization: "Token token=" + token
+      }
+    }, callback);
+  },
+
+  newFutureList: function newFutureList(future_trip_params, callback) {
+    this.ajax({
+      method: 'POST',
+      // url: 'http://httpbin.org/post',
+      url: this.url + '/future_trips',
+      contentType: 'application/json; charset=utf-8',
+      data: JSON.stringify(future_trip_params),
+      dataType: 'json',
+      headers: {
+        Authorization: "Token token=" + token
+      }
+    }, callback);
   }
 };
 
