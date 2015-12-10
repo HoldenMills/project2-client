@@ -3,7 +3,7 @@
 var ux = {
 
   afterLogin: function() {
-    $(".enter").hide(900);
+    $('.enter').hide(900);
     $('#park_list').show(800);
     $('#my_profile').show(800);
   }

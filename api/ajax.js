@@ -3,6 +3,7 @@
 var api = {
 
 url: 'http://www.localhost:3000',
+
 // url: 'http://httpbin.org/post',
 
   ajax: function(config, cb) {
@@ -41,5 +42,18 @@ url: 'http://www.localhost:3000',
      data: JSON.stringify(credentials),
      dataType: 'json'
    }, callback);
+  },
+
+  futureTrip: function futureTrip(callback) {
+    this.ajax({
+     method: 'GET',
+     // url: 'http://httpbin.org/post',
+     url: this.url + '/future_trip',
+     contentType: 'application/json; charset=utf-8',
+     data: JSON.stringify(callback),
+     dataType: 'json'
+   }, callback);
   }
 };
+
+

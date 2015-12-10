@@ -37,6 +37,10 @@ var cb = {
     }
   },
 
+  futureTripCB: function() {
+    console.log("Working?");
+  },
+
  mainSearchCB: function(err, data){
     if (err) {
       console.log(err);

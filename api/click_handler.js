@@ -33,6 +33,11 @@ $(document).ready (function() {
     e.preventDefault();
   });
 
+  $('#future').on('click', function(e){
+    // var futureList =
+    api.futureTrip(cb.futureTripCB);
+    e.preventDefault();
+  });
   // clickHandler.on(something, function(){
   //   api.something(...,callback);
   //   in your callback, set the ux view
