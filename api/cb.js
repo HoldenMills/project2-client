@@ -4,6 +4,20 @@ var token;
 
 var cb = {
 
+  allParksTemplate: function(){},
+
+  init: function(){
+    Handlebars.registerHelper('ifOnLoan', function (conditionalVariable, options){
+      if (conditionalVariable === options.hash.value) {
+        return options.fn(this);
+      } else {
+        return options.inverse(this);
+      }
+    });
+
+    this.allParksTemplate = Handlebars.compile($('#allParks-index').html());
+  },
+
   registerCB: function(err, data){
     if (err) {
       console.log(err);
