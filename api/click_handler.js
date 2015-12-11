@@ -1,5 +1,7 @@
 'use strict';
 
+var allParksTemplate = Handlebars.compile($('#allParks').html());
+
 var url = 'http://www.localhost:3000';
 
   var form2object = function(form) {

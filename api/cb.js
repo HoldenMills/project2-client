@@ -1,5 +1,7 @@
 'use strict';
 
+// var guideTemplate = Handlebars.compile($('#guide-show').html());
+var test;
 var token;
 
 var cb = {
@@ -15,7 +17,7 @@ var cb = {
       }
     });
 
-    this.allParksTemplate = Handlebars.compile($('#allParks-index').html());
+
   },
 
   registerCB: function(err, data){
@@ -40,6 +42,7 @@ var cb = {
     if (err) {
       console.error("error", err);
     } else {
+      api.getParks(cb.getParksCB);
       token = data.user.token;
       console.log("login response:", data);
       ux.afterLogin();
@@ -54,13 +57,18 @@ var cb = {
     }
   },
 
-  // getFutureTripsCB: function(err, data) {
-  //   if (err) {
-  //     console.log(err);
-  //   } else {
-  //     console.log(data);
-  //   }
-  // },
+  getParksCB: function(err, data) {
+    if (err) {
+      console.log(err);
+    } else {
+      var foo = data.parks;
+      var myHTML = allParksTemplate({d: foo});
+      $('.dropdown').append(myHTML);
+
+
+      console.log({d: foo});
+    }
+  },
 
   newFutureTripCB: function(err, data) {
     if (err) {

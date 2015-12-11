@@ -44,19 +44,15 @@ url: 'http://www.localhost:3000',
    }, callback);
   },
 
-  // getFutureTrips: function getFutureTrip(callback) {
-  //   this.ajax({
-  //     method: 'GET',
-  //     // url: 'http://httpbin.org/post',
-  //     url: this.url + '/future_trips',
-  //     // contentType: 'application/json; charset=utf-8',
-  //     // data: JSON.stringify(callback),
-  //     dataType: 'json',
-  //     headers: {
-  //       Authorization: "Token token=" + token
-  //     }
-  //   }, callback);
-  // },
+  getParks: function getFutureTrip(callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.url + '/parks',
+      contentType: 'application/json; charset=utf-8',
+      data: JSON.stringify({}),
+      dataType: 'json',
+    }, callback);
+  },
 
   newFutureTrip: function newFutureList(future_trip_params, callback) {
     this.ajax({

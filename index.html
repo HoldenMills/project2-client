@@ -12,13 +12,6 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <script src="api/ajax.js"></script>
-  <script src="api/cb.js"></script>
-  <script src="api/click_handler.js"></script>
-  <script src="api/ux.js"></script>
 
 </head>
 
@@ -70,6 +63,15 @@
         <input name="reason" type="text" value="" size="30" placeholder="Why do you want to go here?">
         <input name="startDate" type="text" size="30" value="" placeholder="When will your trip start?">
         <input name="endDate" type="text" size="30" value="" placeholder="When will your trip end?">
+        <select class="dropdown" name="park">
+          <script id="allParks" type="text/x-handlebars-template">
+            {{#each d}}
+
+                <option value "1"=>{{name}}</option>
+
+            {{/each}}
+          </script>
+        </select>
         <input id="futureList" type="submit" size="30" value="futureList">
       </form>
 
@@ -79,37 +81,17 @@
     </div>
 
 
-      <div id="park_list">
-        <script id="allProd-index" type="text/x-handlebars-template">
-          <select>
-          {{#each park}}
-          <option value=data-park-id={{_id}}</option>
-          // <option value="Adam's National Historical Park">Adams National Historical Park</option>
-          // <option value="Appalacian National Scenic Trail">Appalacian National Scenic Trail</option>
-          // <option value="Blackstone River Valley National Heritage Corridor">Blackstone River Valley National Heritage  Corridor</option>
-          // <option value="Boston National Historical Park">Boston National Historical Park</option>
-          // <option value="Boston African American National Historic Site">Boston African American National Historic Site</option>
-          // <option value="Boston Harbor Islands National Recreation Area">Boston Harbor Islands National Recreation Area</option>
-          // <option value="Cape Cod National Seashore">Cape Cod National Seashore</option>
-          // <option value="Essex National Heritage Area">Essex National Heritage Area</option>
-          // <option value="Frederick Law Olmsted National Historic Site">Frederick Law Olmsted National Historic Site</option>
-          // <option value="John Fitzgerald Kennedy National Historic Site">John Fitzgerald Kennedy National Historic Site</option>
-          // <option value="Longfellow House Washingtons Headquarters National Historic Site">Longfellow House Washingtons Headquarters National Historic Site</option>
-          // <option value="Lowell National Historical Park">Lowell National Historical Park</option>
-          // <option value="Minute Man National Historical Park">Minute Man National Historical Park</option>
-          // <option value="New Bedford Whaling National Historical Park">New Bedford Whaling National Historical Park</option>
-          // <option value="New England National Scenic Trail">New England National Scenic Trail</option>
-          // <option value="Salem Maritime National Historic Site">Salem Maritime National Historic Site</option>
-          // <option value="Saugus Iron Works National Historic Site">Saugus Iron Works National Historic Site</option>
-          // <option value="Springfield Armory National Historic Site">Springfield Armory National Historic Site</option>
-          // <option value="Washington-Rochambeau National Historic Trail">Washington-Rochambeau National Historic Trail</option>
-          {{/each}}
-          </select>
-        </script>
-      </div>
-
   </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/handlebarsjs/4.0.4/handlebars.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="api/ajax.js"></script>
+  <script src="api/cb.js"></script>
+  <script src="api/click_handler.js"></script>
+  <script src="api/ux.js"></script>
 
 </body>
 
