@@ -44,6 +44,15 @@ url: 'http://www.localhost:3000',
    }, callback);
   },
 
+  getUser: function getUser(callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.url + '/users',
+      contentType: 'application/json'
+      //dataType: 'json'
+    }, callback);
+  },
+
   getParks: function getFutureTrip(callback) {
     this.ajax({
       method: 'GET',

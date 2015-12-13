@@ -41,9 +41,9 @@ $(document).ready (function() {
   //   e.preventDefault();
   // });
 
-  $('#futureList').on('submit', function(e){
+  $('#newFuture').on('submit', function(e){
     var futureTripList = wrap('future_park_params', form2object(this));
-    api.newFutureTrip('futureTripList', cb.newFutureTripCB);
+    api.newFutureTrip(futureTripList, cb.newFutureTripCB);
     e.preventDefault();
   });
   // clickHandler.on(something, function(){

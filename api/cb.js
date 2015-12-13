@@ -44,8 +44,10 @@ var cb = {
     } else {
       api.getParks(cb.getParksCB);
       token = data.user.token;
+      api.getUser(cb.getUserCB);
       console.log("login response:", data);
       ux.afterLogin();
+
     }
   },
 
@@ -61,12 +63,9 @@ var cb = {
     if (err) {
       console.log(err);
     } else {
-      var foo = data.parks;
-      var myHTML = allParksTemplate({d: foo});
+      var myHTML = allParksTemplate({park: data.parks});
       $('.dropdown').append(myHTML);
-
-
-      console.log({d: foo});
+      console.log({park: data.parks});
     }
   },
 

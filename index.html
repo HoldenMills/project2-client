@@ -60,18 +60,16 @@
 
     <!--form to add new Future Trip-->
       <form id="newFuture" hidden>
-        <input name="reason" type="text" value="" size="30" placeholder="Why do you want to go here?">
-        <input name="startDate" type="text" size="30" value="" placeholder="When will your trip start?">
-        <input name="endDate" type="text" size="30" value="" placeholder="When will your trip end?">
         <select class="dropdown" name="park">
           <script id="allParks" type="text/x-handlebars-template">
-            {{#each d}}
-
-                <option value "1"=>{{name}}</option>
-
+            {{#each park}}
+              <option value={{id}},{{name}}>{{name}}</option>
             {{/each}}
           </script>
         </select>
+        <input name="reason" type="text" value="" size="30" placeholder="Why do you want to go here?">
+        <input name="startDate" type="text" size="30" value="" placeholder="When will your trip start?">
+        <input name="endDate" type="text" size="30" value="" placeholder="When will your trip end?">
         <input id="futureList" type="submit" size="30" value="futureList">
       </form>
 
