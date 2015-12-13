@@ -44,14 +44,17 @@ url: 'http://www.localhost:3000',
    }, callback);
   },
 
-  getUser: function getUser(callback) {
-    this.ajax({
-      method: 'GET',
-      url: this.url + '/users',
-      contentType: 'application/json'
-      //dataType: 'json'
-    }, callback);
-  },
+  // getUser: function getUser(callback) {
+  //   this.ajax({
+  //     method: 'GET',
+  //     url: this.url + '/users',
+  //     contentType: 'application/json',
+  //     //dataType: 'json'
+  //     headers: {
+  //       Authorization: "Token token=" + token
+  //     }
+  //   }, callback);
+  // },
 
   getParks: function getFutureTrip(callback) {
     this.ajax({

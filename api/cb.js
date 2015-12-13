@@ -16,8 +16,6 @@ var cb = {
         return options.inverse(this);
       }
     });
-
-
   },
 
   registerCB: function(err, data){
@@ -28,15 +26,14 @@ var cb = {
     }
   },
 
-  getUserCB: function(err, data){
-    if (err) {
-      console.log(err);
-    } else {
-      $('#loginMessage').html("Hello " + data.title);
-      console.log('Hello');
-      console.log(data.title);
-    }
-  },
+  // getUserCB: function(err, data){
+  //   if (err) {
+  //     console.log(err);
+  //   } else {
+  //     // $('#loginMessage').html("Hello " + data.email);
+  //     console.log(data);
+  //   }
+  // },
 
   loginCB: function(err, data){
     if (err) {
@@ -44,7 +41,7 @@ var cb = {
     } else {
       api.getParks(cb.getParksCB);
       token = data.user.token;
-      api.getUser(cb.getUserCB);
+      // api.getUser(cb.getUserCB);
       console.log("login response:", data);
       ux.afterLogin();
 
