@@ -3,10 +3,10 @@
 // var guideTemplate = Handlebars.compile($('#guide-show').html());
 var test;
 var token;
-var session = {
-  userId: null,
-  token: null,
-};
+// var session = {
+//   userId: null,
+//   token: null,
+// };
 var cb = {
 
   allParksTemplate: function(){},
@@ -62,8 +62,8 @@ var cb = {
       api.getParks(cb.getParksCB);
       // api.getProfile(cb.getProfileCB);
       token = data.user.token;
-      session.userId = data.user.id;
-      session.token = data.user.token;
+      // session.userId = data.user.id;
+      // session.token = data.user.token;
       data.user.current_user = true;
       // api.getUser(cb.getUserCB);
       console.log("login response:", data);
