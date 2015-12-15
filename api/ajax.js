@@ -83,7 +83,7 @@ url: 'http://localhost:3000',
       // url: 'http://httpbin.org/post',
       url: this.url + '/future_trips',
       contentType: 'application/json; charset=utf-8',
-      data: JSON.stringify({}),
+      data: JSON.stringify(future_trip_params),
       dataType: 'json',
       headers: {
         Authorization: "Token token=" + token
