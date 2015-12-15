@@ -33,8 +33,6 @@ $(document).ready (function() {
         username: $('#register').children('input[name="username"]').val()
       }
     };
-      console.log(registrationInfo.credentials);
-      console.log(registrationInfo.profile);
       api.register(registrationInfo, cb.registerCB);
       e.preventDefault();
   });
@@ -46,14 +44,22 @@ $(document).ready (function() {
   // });
 
   $('#login').on('submit', function(e) {
-    var credentials = wrap('credentials', form2object(this));
-    api.login(credentials, cb.loginCB);
+    var registrationInfo = {
+      "credentials": {
+      email: $('#login').children('input[name="email"]').val(),
+      password: $('#login').children('input[name="password"]').val()
+      },
+      "profile": {
+        username: $('#login').children('input[name="username"]').val()
+      }
+    };
+    api.login(registrationInfo, cb.loginCB);
     e.preventDefault();
   });
 
   $('#newFuture').on('submit', function(e){
-    var futureTripList = wrap('future_park_params', form2object(this));
-    api.newFutureTrip(futureTripList, cb.newFutureTripCB);
+    var future_trip_params = wrap('future_trip', form2object(this));
+    api.newFutureTrip(future_trip_params, cb.newFutureTripCB);
     e.preventDefault();
   });
   // clickHandler.on(something, function(){

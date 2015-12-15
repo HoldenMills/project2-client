@@ -47,6 +47,7 @@
 
       <h3>Login</h3>
         <form id="login">
+          <input name="username" type="text" value="" size="15" placeholder="username">
           <input name="email" type="text" value="" size="15" placeholder="e-mail">
           <input name="password" type="password" size="10" value="" placeholder="password">
           <input id="login" type="submit" value="Login">
@@ -62,17 +63,17 @@
 
     <!--form to add new Future Trip-->
       <form id="newFuture" hidden>
-        <select class="dropdown" name="park">
+        <select class="dropdown" name="park_id">
           <script id="allParks" type="text/x-handlebars-template">
             {{#each park}}
-              <option value={{id}},{{name}}>{{name}}</option>
+              <option value={{id}}>{{name}}</option>
             {{/each}}
           </script>
         </select>
         <input name="reason" type="text" value="" size="30" placeholder="Why do you want to go here?">
-        <input name="startDate" type="text" size="30" value="" placeholder="When will your trip start?">
-        <input name="endDate" type="text" size="30" value="" placeholder="When will your trip end?">
-        <input id="futureList" type="submit" size="30" value="futureList">
+        <input name="date_begin" type="text" size="30" value="" placeholder="When will your trip start?">
+        <input name="date_end" type="text" size="30" value="" placeholder="When will your trip end?">
+        <input id="futureList" type="submit" size="30" value="Create Future Trip">
       </form>
 
     <div>

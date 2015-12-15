@@ -24,13 +24,13 @@ url: 'http://localhost:3000',
    }, callback);
  },
 
- login: function login(credentials, callback) {
+ login: function login(registrationInfo, callback) {
    this.ajax({
       method: 'POST',
       // url: 'http://httpbin.org/post',
       url: this.url + '/login',
       contentType: 'application/json; charset=utf-8',
-      data: JSON.stringify(credentials),
+      data: JSON.stringify(registrationInfo),
       dataType: 'json'
     }, callback);
   },
@@ -56,12 +56,23 @@ url: 'http://localhost:3000',
   //   }, callback);
   // },
 
-  getParks: function getFutureTrip(callback) {
+  // getProfile: function getProfile(callback) {
+  //   this.ajax({
+  //     method: 'GET',
+  //     url: this.url + '/profiles',
+  //     contentType: 'application/json',
+  //     //dataType: 'json'
+  //     // headers: {
+  //     //   Authorization: "Token token=" + token
+  //     // }
+  //   }, callback);
+  // },
+
+  getParks: function getParks(callback) {
     this.ajax({
       method: 'GET',
       url: this.url + '/parks',
       contentType: 'application/json; charset=utf-8',
-      data: JSON.stringify({}),
       dataType: 'json',
     }, callback);
   },
@@ -70,7 +81,7 @@ url: 'http://localhost:3000',
     this.ajax({
       method: 'POST',
       // url: 'http://httpbin.org/post',
-      url: this.url + '/future_trips/',
+      url: this.url + '/future_trips',
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify(future_trip_params),
       dataType: 'json',

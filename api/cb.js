@@ -3,7 +3,10 @@
 // var guideTemplate = Handlebars.compile($('#guide-show').html());
 var test;
 var token;
-
+var session = {
+  userId: null,
+  token: null,
+};
 var cb = {
 
   allParksTemplate: function(){},
@@ -23,6 +26,14 @@ var cb = {
       console.error(err);
     } else {
       console.log("success:", data);
+    }
+  },
+
+  getProfileCB: function(err, data) {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(data);
     }
   },
 
@@ -46,14 +57,38 @@ var cb = {
   loginCB: function(err, data){
     if (err) {
       console.error("error", err);
+      $(".user-messages").html("<strong>Error! Login fail!</strong>");
     } else {
       api.getParks(cb.getParksCB);
+      // api.getProfile(cb.getProfileCB);
       token = data.user.token;
+      session.userId = data.user.id;
+      session.token = data.user.token;
+      data.user.current_user = true;
       // api.getUser(cb.getUserCB);
       console.log("login response:", data);
+      console.log(data.profile);
       ux.afterLogin();
     }
   },
+
+  // loginCB: function (error, data) {
+  //   if (error) {
+  //     console.error(error);
+  //     $(".user-messages").html("<strong>Error! Login fail!</strong>");
+  //     return;
+  //   }
+
+  //   $('.user-messages').text('Welcome, user #' + session.userId);
+
+  // // show in console for testing purposes
+  // console.log(session.userId);
+  // console.log(session.token);
+
+  // // display current_user status
+
+  // },
+
 
   logoutCB: function(err, data) {
     if (err) {
