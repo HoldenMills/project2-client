@@ -24,22 +24,32 @@ var url = 'http://www.localhost:3000';
 $(document).ready (function() {
 
   $('#register').on('submit', function(e) {
-    var credentials = wrap('credentials', form2object(this));
-    api.register(credentials, cb.registerCB);
-    e.preventDefault();
+    var registrationInfo = {
+      "credentials": {
+      email: $('#register').children('input[name="email"]').val(),
+      password: $('#register').children('input[name="password"]').val()
+      },
+      "profile": {
+        username: $('#register').children('input[name="username"]').val()
+      }
+    };
+      console.log(registrationInfo.credentials);
+      console.log(registrationInfo.profile);
+      api.register(registrationInfo, cb.registerCB);
+      e.preventDefault();
   });
+
+  //  $('#profile').on('click', function(e){
+  //   var username = wrap('username', form2object(this));
+  //   api.newProfile(username, cb.newProfileCB);
+  //   e.preventDefault();
+  // });
 
   $('#login').on('submit', function(e) {
     var credentials = wrap('credentials', form2object(this));
     api.login(credentials, cb.loginCB);
     e.preventDefault();
   });
-
-  // $('#future').on('click', function(e){
-  //   var futureTripList = wrap('future_park_params', form2object(this));
-  //   api.getFutureTrips('futureTripList', cb.newFutureTripCB);
-  //   e.preventDefault();
-  // });
 
   $('#newFuture').on('submit', function(e){
     var futureTripList = wrap('future_park_params', form2object(this));

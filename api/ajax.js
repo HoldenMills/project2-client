@@ -1,18 +1,9 @@
-'use strict'
+// jshint browser:true, jquery:true
+'use strict';
 
 var api = {
 
-url: 'http://www.localhost:3000',
-
-// url: 'http://httpbin.org/post',
-
-  // ajax: function(config, cb) {
-  //   $.ajaxSetup({
-  //     xhrFields: {
-  //       withCredentials: true
-  //     }
-  //   });
-  // },
+url: 'http://localhost:3000',
 
   ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
@@ -22,28 +13,37 @@ url: 'http://www.localhost:3000',
     });
   },
 
- register: function register(credentials, callback) {
+ register: function register(registrationInfo, callback) {
     this.ajax({
       method: 'POST',
       // url: ,
       url: this.url + '/register',
       contentType: 'application/json; charset=utf-8',
-      data: JSON.stringify(credentials),
+      data: JSON.stringify(registrationInfo),
       dataType: 'json'
    }, callback);
  },
 
  login: function login(credentials, callback) {
    this.ajax({
-     method: 'POST',
-     // url: 'http://httpbin.org/post',
-     url: this.url + '/login',
-     contentType: 'application/json; charset=utf-8',
-     data: JSON.stringify(credentials),
-     dataType: 'json'
-   }, callback);
+      method: 'POST',
+      // url: 'http://httpbin.org/post',
+      url: this.url + '/login',
+      contentType: 'application/json; charset=utf-8',
+      data: JSON.stringify(credentials),
+      dataType: 'json'
+    }, callback);
   },
 
+  // newProfile: function newProfile(profile, callback) {
+  //   this.ajax({
+  //     method: 'POST',
+  //     url: this.url + '/profile',
+  //     contentType: 'application/json; charset=utf-8',
+  //     data: JSON.stringify(profile),
+  //     dataType: 'json'
+  //   }, callback);
+  //},
   // getUser: function getUser(callback) {
   //   this.ajax({
   //     method: 'GET',
@@ -80,5 +80,3 @@ url: 'http://www.localhost:3000',
     }, callback);
   }
 };
-
-

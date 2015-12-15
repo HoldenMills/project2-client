@@ -18,9 +18,17 @@ var cb = {
     });
   },
 
+  newProfileCB: function(err, data) {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log("success:", data);
+    }
+  },
+
   registerCB: function(err, data){
     if (err) {
-      console.log(err);
+      console.error(err);
     } else {
       console.log(data);
     }
@@ -44,7 +52,6 @@ var cb = {
       // api.getUser(cb.getUserCB);
       console.log("login response:", data);
       ux.afterLogin();
-
     }
   },
 
