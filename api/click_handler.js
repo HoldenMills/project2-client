@@ -58,8 +58,8 @@ $(document).ready (function() {
   });
 
   $('#newFuture').on('submit', function(e){
-    var future_trip_params = wrap('future_trip', form2object(this));
-    api.newFutureTrip(future_trip_params, cb.newFutureTripCB);
+    var future_trip = wrap('future_trip', form2object(this));
+    api.newFutureTrip(future_trip, cb.newFutureTripCB);
     e.preventDefault();
   });
   // clickHandler.on(something, function(){
