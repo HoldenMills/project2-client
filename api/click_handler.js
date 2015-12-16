@@ -57,9 +57,14 @@ $(document).ready (function() {
     e.preventDefault();
   });
 
-  $('#newFuture').on('submit', function(e){
+  $('#newFuture').on('submit', function(e) {
     var future_trip = wrap('future_trip', form2object(this));
     api.newFutureTrip(future_trip, cb.newFutureTripCB);
+    e.preventDefault();
+  });
+
+  $('#future').on('click', function(e) {
+    api.showFutureTrips(cb.showFutureTripsCB);
     e.preventDefault();
   });
   // clickHandler.on(something, function(){

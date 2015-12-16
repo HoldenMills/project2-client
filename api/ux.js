@@ -7,6 +7,10 @@ var ux = {
     $('#park_list').show(800);
     $('#my_profile').show(800);
     $('#newFuture').show(800);
+  },
+
+  viewFuture: function() {
+    $('#futureList').show(600);
   }
 };
 // $('#future').on('click', function(){

@@ -44,17 +44,6 @@ url: 'http://localhost:3000',
   //     dataType: 'json'
   //   }, callback);
   //},
-  // getUser: function getUser(callback) {
-  //   this.ajax({
-  //     method: 'GET',
-  //     url: this.url + '/users',
-  //     contentType: 'application/json',
-  //     //dataType: 'json'
-  //     headers: {
-  //       Authorization: "Token token=" + token
-  //     }
-  //   }, callback);
-  // },
 
   // getProfile: function getProfile(callback) {
   //   this.ajax({
@@ -89,5 +78,17 @@ url: 'http://localhost:3000',
         Authorization: "Token token=" + token
       }
     }, callback);
-  }
+  },
+
+  showFutureTrips: function(callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.url + '/future_trips',
+      contentType: 'application/json; charset=utf-8',
+      dataType: 'json',
+      headers: {
+        Authorization: "Token token=" + token
+      }
+    }, callback);
+  },
 };

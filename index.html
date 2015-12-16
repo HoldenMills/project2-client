@@ -57,6 +57,8 @@
       <div id="my_profile" hidden>
         <h3>My Profile</h3>
           <p>Planning ahead?  View your <button id="future">Future Trip List</button></p>
+            <ul id="futureList" style="list-style-type:none" hidden>
+            </ul>
           <p>Feeling reminiscent? View your <button id="past">Past Trips</button></p>
       </div>
     </div>
@@ -85,6 +87,15 @@
   </div>
 </div>
 
+         <script id="allFutureTrips" type="text/x-handlebars-template">
+                {{#each future_trips}}
+                  <li>{{park_id}}</li>
+                  <li>{{reason}}</li>
+                  <li>{{date_end}}</li>
+                  <li>{{date_begin}}</li>
+                {{/each}}
+                </script>
+
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script type="text/javascript" src="https://cdn.jsdelivr.net/handlebarsjs/4.0.4/handlebars.js"></script>
@@ -97,3 +108,9 @@
 </body>
 
 </html>
+
+<script id="futureTrips" type="text/x-handlebars-template">
+{{#list future_trips}}{{park_id}} {{date_begin}}{{date_end}}{{reason}}{{/list}}
+              </script>
+
+
