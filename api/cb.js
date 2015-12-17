@@ -9,7 +9,7 @@ var token;
 
 var cb = {
 
-  allParksTemplate: Handlebars.compile($('#allParks').html()),
+  // allParksTemplate: Handlebars.compile($('#allParks').html()),
 
   allFutureTripsTemplate: Handlebars.compile($('#allFutureTrips').html()),
 
@@ -21,22 +21,6 @@ var cb = {
         return options.inverse(this);
       }
     });
-  },
-
-  newProfileCB: function(err, data) {
-    if (err) {
-      console.error(err);
-    } else {
-      console.log("success:", data);
-    }
-  },
-
-  getProfileCB: function(err, data) {
-    if (err) {
-      console.error(err);
-    } else {
-      console.log(data);
-    }
   },
 
   registerCB: function(err, data){
@@ -73,16 +57,6 @@ var cb = {
     }
   },
 
-  getParksCB: function(err, data) {
-    if (err) {
-      console.log(err);
-    } else {
-      var myHTML = cb.allParksTemplate({park: data.parks});
-      $('.dropdown').append(myHTML);
-      console.log({park: data.parks});
-    }
-  },
-
   newFutureTripCB: function(err, data) {
     if (err) {
       console.log(err);
@@ -109,24 +83,4 @@ var cb = {
       console.log(data);
     }
   },
-
- mainSearchCB: function(err, data){
-    if (err) {
-      console.log(err);
-    } else {
-      console.log(data);
-      var rowHTML = cb.allProdsTemplate({products: data});
-      $("#allProdsPage").html(rowHTML);
-    }
-  },
-
-// getUserCB: function(err, data){
-  //   if (err) {
-  //     console.log(err);
-  //   } else {
-  //     // $('#loginMessage').html("Hello " + data.email);
-  //     console.log(data);
-  //   }
-  // },
-
 };

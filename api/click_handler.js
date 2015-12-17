@@ -66,9 +66,4 @@ $(document).ready (function() {
     var id = $(e.target).data('id');
     api.deleteFutureTrip(id, cb.deleteFutureTripCB);
   });
-  // clickHandler.on(something, function(){
-  //   api.something(...,callback);
-  //   in your callback, set the ux view
-  // });
-
 });

@@ -3,8 +3,8 @@
 
 var api = {
 
-// url: 'http://localhost:3000',
-url: 'http://stormy-caverns-8878.herokuapp.com',
+url: 'http://localhost:3000',
+// url: 'http://stormy-caverns-8878.herokuapp.com',
 
   ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
@@ -33,15 +33,6 @@ url: 'http://stormy-caverns-8878.herokuapp.com',
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify(registrationInfo),
       dataType: 'json'
-    }, callback);
-  },
-
-  getParks: function getParks(callback) {
-    this.ajax({
-      method: 'GET',
-      url: this.url + '/parks',
-      contentType: 'application/json; charset=utf-8',
-      dataType: 'json',
     }, callback);
   },
 
@@ -82,27 +73,4 @@ url: 'http://stormy-caverns-8878.herokuapp.com',
       }
     }, callback);
   }
-
-  // newProfile: function newProfile(profile, callback) {
-  //   this.ajax({
-  //     method: 'POST',
-  //     url: this.url + '/profile',
-  //     contentType: 'application/json; charset=utf-8',
-  //     data: JSON.stringify(profile),
-  //     dataType: 'json'
-  //   }, callback);
-  //},
-
-  // getProfile: function getProfile(callback) {
-  //   this.ajax({
-  //     method: 'GET',
-  //     url: this.url + '/profiles',
-  //     contentType: 'application/json',
-  //     //dataType: 'json'
-  //     // headers: {
-  //     //   Authorization: "Token token=" + token
-  //     // }
-  //   }, callback);
-  // },
-
 };
