@@ -4,7 +4,7 @@
 var api = {
 
 // url: 'http://localhost:3000',
-url: 'http://stormy-caverns-8878.herokuapp.com',
+url: 'https://stormy-caverns-8878.herokuapp.com',
 
   ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
