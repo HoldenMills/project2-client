@@ -91,4 +91,16 @@ url: 'http://localhost:3000',
       }
     }, callback);
   },
+
+  deleteFutureTrip: function(id, callback) {
+    this.ajax({
+      method: 'DELETE',
+      url: this.url + "/future_trips/" + id,
+      // contentType: 'application/json; charset=utf-8',
+      // dataType: 'json',
+      headers: {
+        Authorization: "Token token=" + token
+      }
+    }, callback);
+  }
 };

@@ -169,6 +169,14 @@ var cb = {
     }
   },
 
+  deleteFutureTripCB: function(err, data) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(data);
+    }
+  },
+
  mainSearchCB: function(err, data){
     if (err) {
       console.log(err);

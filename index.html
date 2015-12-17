@@ -58,43 +58,36 @@
         <h3>My Profile</h3>
           <p>Planning ahead?  View your <button id="future">Future Trip List</button></p>
             <ul id="futureList" style="list-style-type:none" hidden>
+              <script id="allFutureTrips" type="text/x-handlebars-template">
+                {{#each future_trips}}
+                  <li>{{park_id.name}}</li>
+                  <li>{{reason}}</li>
+                  <li>{{date_end}}</li>
+                  <li>{{date_begin}}</li>
+                  <li><button data-id="{{id}}" type="button" class="delete">Remove</button>
+                {{/each}}
+              </script>
             </ul>
           <p>Feeling reminiscent? View your <button id="past">Past Trips</button></p>
       </div>
     </div>
 
     <!--form to add new Future Trip-->
-      <form id="newFuture" hidden>
-        <select class="dropdown" name="park_id">
-          <script id="allParks" type="text/x-handlebars-template">
-            {{#each park}}
-              <option value={{id}}>{{name}}</option>
-            {{/each}}
-          </script>
-        </select>
-        <input name="reason" type="text" value="" size="30" placeholder="Why do you want to go here?">
-        <input name="date_begin" type="text" size="30" value="" placeholder="When will your trip start?">
-        <input name="date_end" type="text" size="30" value="" placeholder="When will your trip end?">
-        <input id="futureList" type="submit" size="30" value="Create Future Trip">
-      </form>
-
-    <div>
-
-
-    </div>
-
-
+    <form id="newFuture" hidden>
+      <select class="dropdown" name="park_id">
+        <script id="allParks" type="text/x-handlebars-template">
+          {{#each park}}
+            <option value={{id}}>{{name}}</option>
+          {{/each}}
+        </script>
+      </select>
+      <input name="reason" type="text" value="" size="30" placeholder="Why do you want to go here?">
+      <input name="date_begin" type="text" size="30" value="" placeholder="When will your trip start?">
+      <input name="date_end" type="text" size="30" value="" placeholder="When will your trip end?">
+      <input id="futureList" type="submit" size="30" value="Create Future Trip">
+    </form>
   </div>
 </div>
-
-         <script id="allFutureTrips" type="text/x-handlebars-template">
-                {{#each future_trips}}
-                  <li>{{park_id}}</li>
-                  <li>{{reason}}</li>
-                  <li>{{date_end}}</li>
-                  <li>{{date_begin}}</li>
-                {{/each}}
-                </script>
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -108,9 +101,5 @@
 </body>
 
 </html>
-
-<script id="futureTrips" type="text/x-handlebars-template">
-{{#list future_trips}}{{park_id}} {{date_begin}}{{date_end}}{{reason}}{{/list}}
-              </script>
 
 

@@ -67,6 +67,12 @@ $(document).ready (function() {
     api.showFutureTrips(cb.showFutureTripsCB);
     e.preventDefault();
   });
+
+  $('#futureList').on('click', ".delete", function(e) {
+    var id = $(e.target).data('id');
+    api.deleteFutureTrip(id, cb.deleteFutureTripCB);
+    // e.preventDefault();
+  });
   // clickHandler.on(something, function(){
   //   api.something(...,callback);
   //   in your callback, set the ux view
