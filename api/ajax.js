@@ -35,28 +35,6 @@ url: 'http://localhost:3000',
     }, callback);
   },
 
-  // newProfile: function newProfile(profile, callback) {
-  //   this.ajax({
-  //     method: 'POST',
-  //     url: this.url + '/profile',
-  //     contentType: 'application/json; charset=utf-8',
-  //     data: JSON.stringify(profile),
-  //     dataType: 'json'
-  //   }, callback);
-  //},
-
-  // getProfile: function getProfile(callback) {
-  //   this.ajax({
-  //     method: 'GET',
-  //     url: this.url + '/profiles',
-  //     contentType: 'application/json',
-  //     //dataType: 'json'
-  //     // headers: {
-  //     //   Authorization: "Token token=" + token
-  //     // }
-  //   }, callback);
-  // },
-
   getParks: function getParks(callback) {
     this.ajax({
       method: 'GET',
@@ -103,4 +81,27 @@ url: 'http://localhost:3000',
       }
     }, callback);
   }
+
+  // newProfile: function newProfile(profile, callback) {
+  //   this.ajax({
+  //     method: 'POST',
+  //     url: this.url + '/profile',
+  //     contentType: 'application/json; charset=utf-8',
+  //     data: JSON.stringify(profile),
+  //     dataType: 'json'
+  //   }, callback);
+  //},
+
+  // getProfile: function getProfile(callback) {
+  //   this.ajax({
+  //     method: 'GET',
+  //     url: this.url + '/profiles',
+  //     contentType: 'application/json',
+  //     //dataType: 'json'
+  //     // headers: {
+  //     //   Authorization: "Token token=" + token
+  //     // }
+  //   }, callback);
+  // },
+
 };

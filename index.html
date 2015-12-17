@@ -18,85 +18,85 @@
 <body>
 
 
-<!--homepage-->
-<div class="container">
-  <div class="jumbotron">
-    <h1>My National Parks</h1>
-    <p>Post your trip and plan your next one!</p>
-  </div>
-  <div class="row">
-    <div class="col-sm-4">
-      <h2>About the National Park Service</h2>
-      <p>Since 1916, the American people have entrusted the National Park Service with the care of their national parks. With the help of volunteers and park partners, they safeguard more than 400 places and share their stories with more than 275 million visitors every year.</p>
-      <p>The National Park Service preserves unimpaired the natural and cultural resources and values of the National Park System for the enjoyment, education, and inspiration of this and future generations. The Park Service cooperates with partners to extend the benefits of natural and cultural resource conservation and outdoor recreation throughout this country and the world.</p>
+  <!--homepage-->
+  <div class="container">
+    <div class="jumbotron">
+      <h1>My National Parks</h1>
+      <p>Post your trip and plan your next one!</p>
     </div>
-    <div class="col-sm-4">
-      <h2>Featured Park</h2>
-      <h3>Adam's National Historical Park</h3>
-      <h3>Quincy MA</h3>
-      <p>From the sweet little farm at the foot of Penn’s Hill to the gentleman’s country estate at Peace field, Adams National Historical Park is the story of “heroes, statesman, philosophers … and learned women” whose ideas and actions helped to transform thirteen disparate colonies into one united nation.</p>
-    </div>
-    <div class="enter">
-      <h3>Register</h3>
-        <form id="register">
-          <input name="username" type="text" value="" size="15" placeholder="username">
-          <input name="email" type="text" value="" size="15" placeholder="e-mail">
-          <input name="password" type="password" size="10" value="" placeholder="password">
-          <input id="register" type="submit" value="Register">
-        </form>
-
-      <h3>Login</h3>
-        <form id="login">
-          <input name="username" type="text" value="" size="15" placeholder="username">
-          <input name="email" type="text" value="" size="15" placeholder="e-mail">
-          <input name="password" type="password" size="10" value="" placeholder="password">
-          <input id="login" type="submit" value="Login">
-        </form>
-    </div>
-    <div class="col-sm-4">
-      <div id="my_profile" hidden>
-        <h3>My Profile</h3>
-          <p>Planning ahead?  View your <button id="future">Future Trip List</button></p>
-            <ul id="futureList" style="list-style-type:none" hidden>
-              <script id="allFutureTrips" type="text/x-handlebars-template">
-                {{#each future_trips}}
-                  <li>{{park_id.name}}</li>
-                  <li>{{reason}}</li>
-                  <li>{{date_end}}</li>
-                  <li>{{date_begin}}</li>
-                  <li><button data-id="{{id}}" type="button" class="delete">Remove</button>
-                {{/each}}
-              </script>
-            </ul>
-          <p>Feeling reminiscent? View your <button id="past">Past Trips</button></p>
+    <div class="row">
+      <div class="col-sm-4">
+        <h2>About the National Park Service</h2>
+        <p>Since 1916, the American people have entrusted the National Park Service with the care of their national parks. With the help of volunteers and park partners, they safeguard more than 400 places and share their stories with more than 275 million visitors every year.</p>
+        <p>The National Park Service preserves unimpaired the natural and cultural resources and values of the National Park System for the enjoyment, education, and inspiration of this and future generations. The Park Service cooperates with partners to extend the benefits of natural and cultural resource conservation and outdoor recreation throughout this country and the world.</p>
       </div>
+      <div class="col-sm-4">
+        <h2>Featured Park</h2>
+        <h3>Adam's National Historical Park</h3>
+        <h3>Quincy MA</h3>
+        <p>From the sweet little farm at the foot of Penn’s Hill to the gentleman’s country estate at Peace field, Adams National Historical Park is the story of “heroes, statesman, philosophers … and learned women” whose ideas and actions helped to transform thirteen disparate colonies into one united nation.</p>
+      </div>
+      <div class="enter">
+        <h3>Register</h3>
+          <form id="register">
+            <input name="username" type="text" value="" size="15" placeholder="username">
+            <input name="email" type="text" value="" size="15" placeholder="e-mail">
+            <input name="password" type="password" size="10" value="" placeholder="password">
+            <input id="register" type="submit" value="Register">
+          </form>
+
+        <h3>Login</h3>
+          <form id="login">
+            <input name="username" type="text" value="" size="15" placeholder="username">
+            <input name="email" type="text" value="" size="15" placeholder="e-mail">
+            <input name="password" type="password" size="10" value="" placeholder="password">
+            <input id="login" type="submit" value="Login">
+          </form>
+      </div>
+      <div class="col-sm-4">
+        <div id="my_profile" hidden>
+          <h3>My Profile</h3>
+            <p>Planning ahead?  View your <button id="future">Future Trip List</button></p>
+              <ul id="futureList" style="list-style-type:none" hidden>
+                <script id="allFutureTrips" type="text/x-handlebars-template">
+                  {{#each future_trips}}
+                    <li>{{park_id.name}}</li>
+                    <li>{{reason}}</li>
+                    <li>{{date_end}}</li>
+                    <li>{{date_begin}}</li>
+                    <li><button data-id="{{id}}" type="button" class="delete">Remove</button>
+                  {{/each}}
+                </script>
+              </ul>
+            <p>Feeling reminiscent? View your <button id="past">Past Trips</button></p>
+        </div>
+      </div>
+
+      <!--form to add new Future Trip-->
+      <form id="newFuture" hidden>
+        <select class="dropdown" name="park_id">
+          <script id="allParks" type="text/x-handlebars-template">
+            {{#each park}}
+              <option value={{id}}>{{name}}</option>
+            {{/each}}
+          </script>
+        </select>
+        <input name="reason" type="text" value="" size="30" placeholder="Why do you want to go here?">
+        <input name="date_begin" type="text" size="30" value="" placeholder="When will your trip start?">
+        <input name="date_end" type="text" size="30" value="" placeholder="When will your trip end?">
+        <input id="futureList" type="submit" size="30" value="Create Future Trip">
+      </form>
     </div>
-
-    <!--form to add new Future Trip-->
-    <form id="newFuture" hidden>
-      <select class="dropdown" name="park_id">
-        <script id="allParks" type="text/x-handlebars-template">
-          {{#each park}}
-            <option value={{id}}>{{name}}</option>
-          {{/each}}
-        </script>
-      </select>
-      <input name="reason" type="text" value="" size="30" placeholder="Why do you want to go here?">
-      <input name="date_begin" type="text" size="30" value="" placeholder="When will your trip start?">
-      <input name="date_end" type="text" size="30" value="" placeholder="When will your trip end?">
-      <input id="futureList" type="submit" size="30" value="Create Future Trip">
-    </form>
   </div>
-</div>
 
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/handlebarsjs/4.0.4/handlebars.js"></script>
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <script src="api/ajax.js"></script>
-  <script src="api/cb.js"></script>
-  <script src="api/click_handler.js"></script>
-  <script src="api/ux.js"></script>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/handlebarsjs/4.0.4/handlebars.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="api/ajax.js"></script>
+    <script src="api/cb.js"></script>
+    <script src="api/click_handler.js"></script>
+    <script src="api/ux.js"></script>
 
 </body>
 

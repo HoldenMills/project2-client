@@ -37,12 +37,6 @@ $(document).ready (function() {
       e.preventDefault();
   });
 
-  //  $('#profile').on('click', function(e){
-  //   var username = wrap('username', form2object(this));
-  //   api.newProfile(username, cb.newProfileCB);
-  //   e.preventDefault();
-  // });
-
   $('#login').on('submit', function(e) {
     var registrationInfo = {
       "credentials": {
@@ -71,7 +65,6 @@ $(document).ready (function() {
   $('#futureList').on('click', ".delete", function(e) {
     var id = $(e.target).data('id');
     api.deleteFutureTrip(id, cb.deleteFutureTripCB);
-    // e.preventDefault();
   });
   // clickHandler.on(something, function(){
   //   api.something(...,callback);
