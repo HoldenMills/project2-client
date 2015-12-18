@@ -37,12 +37,13 @@ url: 'http://localhost:3000',
   },
 
   logout: function(callback) {
-    var id = this.user.id;
+    // var id = $('.id').val(this.data.user.id);
+    // var token = $('.token').val(this.data.user.token);
     this.ajax({
      method: 'DELETE',
-     url: this.url + '/logout/' + id,
+     url: this.url + '/logout/' + session.userId,
      headers: {
-       Authorization: 'Token token=' + token
+       Authorization: 'Token token=' + session.token,
      },
      contentType: 'application/json',
      dataType: 'json'
@@ -55,7 +56,7 @@ url: 'http://localhost:3000',
   //     // url: 'http://httpbin.org/post',
   //     url: this.url + '/users',
   //     contentType: 'application/json; charset=utf-8',
-  //     data: JSON.stringify(email_params),
+  //     data: JSON.stringify(email),
   //     dataType: 'json'
   //   }, callback);
   // },

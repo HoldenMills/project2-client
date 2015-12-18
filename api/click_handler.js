@@ -41,8 +41,8 @@ $(document).ready (function() {
   }),
 
   $('#logoutButton').on('click', function (e) {
-    api.logout(cb.logoutCB);
     e.preventDefault();
+    api.logout(cb.logoutCB);
   });
 
   $('#newFuture').on('submit', function(e) {

@@ -34,18 +34,23 @@ var cb = {
   loginCB: function(err, data){
     if (err) {
       console.error("error", err);
-      $(".user-messages").html("<strong>Error! Login fail!</strong>");
+      // $(".user-messages").html("<strong>Error! Login fail!</strong>");
     } else {
+        // $('.token').val(data.user.token);
+        // $('.id').val(data.user.id);
+        console.log(data.user.token);
+        session.token = data.user.token;
+        session.userId = data.user.id;
       // api.getProfile(cb.getProfileCB);
-      token = data.user.token;
+      // token = data.user.token;
       // session.userId = data.user.id;
       // session.token = data.user.token;
       data.user.current_user = true;
       // api.getUser(cb.getUserCB);
       console.log("login response:", data);
-      ux.afterLogin();
-    }
-  },
+      }
+    },
+
 
   logoutCB: function(err, data) {
     if (err) {
