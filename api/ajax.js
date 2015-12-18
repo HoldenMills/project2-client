@@ -14,27 +14,51 @@ url: 'http://localhost:3000',
     });
   },
 
- register: function register(registrationInfo, callback) {
+ register: function register(credentials, callback) {
     this.ajax({
       method: 'POST',
       // url: ,
       url: this.url + '/register',
       contentType: 'application/json; charset=utf-8',
-      data: JSON.stringify(registrationInfo),
+      data: JSON.stringify(credentials),
       dataType: 'json'
    }, callback);
  },
 
- login: function login(registrationInfo, callback) {
+ login: function login(credentials, callback) {
    this.ajax({
       method: 'POST',
       // url: 'http://httpbin.org/post',
       url: this.url + '/login',
       contentType: 'application/json; charset=utf-8',
-      data: JSON.stringify(registrationInfo),
+      data: JSON.stringify(credentials),
       dataType: 'json'
     }, callback);
   },
+
+  logout: function(callback) {
+    var id = this.user.id;
+    this.ajax({
+     method: 'DELETE',
+     url: this.url + '/logout/' + id,
+     headers: {
+       Authorization: 'Token token=' + token
+     },
+     contentType: 'application/json',
+     dataType: 'json'
+   }, callback);
+ },
+
+  // changeEmail: function(call)
+  // this.ajax({
+  //     method: 'PATCH',
+  //     // url: 'http://httpbin.org/post',
+  //     url: this.url + '/users',
+  //     contentType: 'application/json; charset=utf-8',
+  //     data: JSON.stringify(email_params),
+  //     dataType: 'json'
+  //   }, callback);
+  // },
 
   newFutureTrip: function newFutureList(future_trip_params, callback) {
     this.ajax({

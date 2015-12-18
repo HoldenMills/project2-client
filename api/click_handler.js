@@ -1,6 +1,6 @@
 'use strict';
 
-var allParksTemplate = Handlebars.compile($('#allParks').html());
+// var allParksTemplate = Handlebars.compile($('#allParks').html());
 
 var url = 'http://www.localhost:3000';
 
@@ -24,35 +24,29 @@ var url = 'http://www.localhost:3000';
 $(document).ready (function() {
 
   $('#register').on('submit', function(e) {
-    var registrationInfo = {
-      "credentials": {
-      email: $('#register').children('input[name="email"]').val(),
-      password: $('#register').children('input[name="password"]').val()
-      },
-      "profile": {
-        username: $('#register').children('input[name="username"]').val()
-      }
-    };
-      api.register(registrationInfo, cb.registerCB);
+    e.preventDefault();
+    var credentials = wrap('credentials', form2object(this));
+    console.log(credentials);
+      // email: $('#register').children('input[name="email"]').val(),
+      // password: $('#register').children('input[name="password"]').val()
+      // };
+      api.register(credentials, cb.registerCB);
       e.preventDefault();
-  });
+  }),
 
   $('#login').on('submit', function(e) {
-    var registrationInfo = {
-      "credentials": {
-      email: $('#login').children('input[name="email"]').val(),
-      password: $('#login').children('input[name="password"]').val()
-      },
-      "profile": {
-        username: $('#login').children('input[name="username"]').val()
-      }
-    };
-    api.login(registrationInfo, cb.loginCB);
+    var credentials = wrap('credentials', form2object(this));
+    api.login(credentials, cb.loginCB);
+    e.preventDefault();
+  }),
+
+  $('#logoutButton').on('click', function (e) {
+    api.logout(cb.logoutCB);
     e.preventDefault();
   });
 
   $('#newFuture').on('submit', function(e) {
-    var future_trip = wrap('future_trip', form2object(this));
+    var todoList = wrap('todo_params', form2object(this));
     api.newFutureTrip(future_trip, cb.newFutureTripCB);
     e.preventDefault();
   });
