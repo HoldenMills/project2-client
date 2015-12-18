@@ -3,8 +3,9 @@
 
 var api = {
 
-url: 'http://localhost:3000',
-// url: 'http://stormy-caverns-8878.herokuapp.com',
+url: 'https://calm-spire-9782.herokuapp.com/',
+// url: 'http://localhost:3000',
+
 
   ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
