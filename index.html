@@ -3,48 +3,48 @@
 <html lang="en">
 
 <head>
-
+<link rel="stylesheet" type="text/css" href="api/style.css">
+<link href='https://fonts.googleapis.com/css?family=Arvo:400,700,400italic' rel='stylesheet' type='text/css'>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
 
 <body>
+    <!--homepage-->
+    <h1>The Revolving Door</h1>
+    <h2>You Go In, You Go Out</h2>
+    <div class="enter">
+        <a class="registerMessage" id="registerMessage"></a>
+        <form id="register">
+         <!--  <input name="username" type="text" value="" size="15" placeholder="username"> -->
+          <input name="email" type="text" value="" size="15" placeholder="e-mail">
+          <input name="password" type="password" size="15" value="" placeholder="password">
+          <input class=button id="register" type="submit" value="Register">
+        </form>
+    </div>
 
-  <!--homepage-->
-  <h1>The Revolving Door</h1>
-  <h2>You Go In, You Go Out</h2>
-  <div class="enter">
-    <h2>Register</h2>
-      <a class="registerMessage" id="registerMessage"></a>
-      <form id="register">
-       <!--  <input name="username" type="text" value="" size="15" placeholder="username"> -->
-        <input name="email" type="text" value="" size="15" placeholder="e-mail">
-        <input name="password" type="password" size="10" value="" placeholder="password">
-        <input id="register" type="submit" value="Register">
-      </form>
-
-    <h2>Login</h2>
-      <a class="loginMessage" id="loginMessage"></a>
-      <form id="login">
-        <!-- <input name="username" type="text" value="" size="15" placeholder="username"> -->
-        <input name="email" type="text" value="" size="15" placeholder="e-mail">
-        <input name="password" type="password" size="10" value="" placeholder="password">
-        <input id="login" type="submit" value="Login">
-      </form>
-  </div>
-  <div>
-    <button id="logoutButton"type="button">Logout</button>
-    <a class="logoutMessage" id="logoutMessage"><a/>
-  </div>
+    <div class="loginClass">
+        <a class="loginMessage" id="loginMessage"></a>
+        <form id="login">
+          <!-- <input name="username" type="text" value="" size="15" placeholder="username"> -->
+          <input name="email" type="text" value="" size="15" placeholder="e-mail">
+          <input name="password" type="password" size="10" value="" placeholder="password">
+          <input class =btn id="login" type="submit" value="Login">
+        </form>
+    </div>
+    <div>
+      <button id="logoutButton"type="button" hidden>Logout</button>
+      <a class="logoutMessage" id="logoutMessage"><a/>
+    </div>
 
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/handlebarsjs/4.0.4/handlebars.js"></script>
+    <script src="api/style.css"></script>
     <script src="api/ajax.js"></script>
     <script src="api/cb.js"></script>
     <script src="api/click_handler.js"></script>
     <script src="api/ux.js"></script>
-
 </body>
 
 </html>

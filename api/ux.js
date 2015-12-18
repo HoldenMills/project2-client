@@ -3,13 +3,14 @@
 var ux = {
 
   afterLogin: function() {
-    $('#register').hide(100);
+    $('#enter').hide(100);
     $('.loginMessage').show(500);
+    $('#logoutButton').show(100);
   },
 
   afterRegister: function() {
     $('.registerMessage').show(200);
-    $('#login').hide(100);
+    $('#loginClass').hide(100);
   },
 
   afterLogout: function() {
