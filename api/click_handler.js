@@ -35,29 +35,14 @@ $(document).ready (function() {
   }),
 
   $('#login').on('submit', function(e) {
+    e.preventDefault();
     var credentials = wrap('credentials', form2object(this));
     api.login(credentials, cb.loginCB);
-    e.preventDefault();
+    $('.loginMessage').show();
   }),
 
   $('#logoutButton').on('click', function (e) {
     e.preventDefault();
     api.logout(cb.logoutCB);
-  });
-
-  $('#newFuture').on('submit', function(e) {
-    var todoList = wrap('todo_params', form2object(this));
-    api.newFutureTrip(future_trip, cb.newFutureTripCB);
-    e.preventDefault();
-  });
-
-  $('#future').on('click', function(e) {
-    api.showFutureTrips(cb.showFutureTripsCB);
-    e.preventDefault();
-  });
-
-  $('#futureList').on('click', ".delete", function(e) {
-    var id = $(e.target).data('id');
-    api.deleteFutureTrip(id, cb.deleteFutureTripCB);
   });
 });

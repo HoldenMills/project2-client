@@ -17,7 +17,6 @@ url: 'http://localhost:3000',
  register: function register(credentials, callback) {
     this.ajax({
       method: 'POST',
-      // url: ,
       url: this.url + '/register',
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify(credentials),
@@ -28,7 +27,6 @@ url: 'http://localhost:3000',
  login: function login(credentials, callback) {
    this.ajax({
       method: 'POST',
-      // url: 'http://httpbin.org/post',
       url: this.url + '/login',
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify(credentials),
@@ -37,8 +35,6 @@ url: 'http://localhost:3000',
   },
 
   logout: function(callback) {
-    // var id = $('.id').val(this.data.user.id);
-    // var token = $('.token').val(this.data.user.token);
     this.ajax({
      method: 'DELETE',
      url: this.url + '/logout/' + session.userId,
@@ -47,19 +43,8 @@ url: 'http://localhost:3000',
      },
      contentType: 'application/json',
      dataType: 'json'
-   }, callback);
- },
-
-  // changeEmail: function(call)
-  // this.ajax({
-  //     method: 'PATCH',
-  //     // url: 'http://httpbin.org/post',
-  //     url: this.url + '/users',
-  //     contentType: 'application/json; charset=utf-8',
-  //     data: JSON.stringify(email),
-  //     dataType: 'json'
-  //   }, callback);
-  // },
+    }, callback);
+  },
 
   newFutureTrip: function newFutureList(future_trip_params, callback) {
     this.ajax({

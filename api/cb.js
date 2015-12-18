@@ -9,20 +9,6 @@ var session = {
 
 var cb = {
 
-  // allParksTemplate: Handlebars.compile($('#allParks').html()),
-
-  // allFutureTripsTemplate: Handlebars.compile($('#allFutureTrips').html()),
-
-  // init: function(){
-  //   Handlebars.registerHelper('ifOnLoan', function (conditionalVariable, options){
-  //     if (conditionalVariable === options.hash.value) {
-  //       return options.fn(this);
-  //     } else {
-  //       return options.inverse(this);
-  //     }
-  //   });
-  // },
-
   registerCB: function(err, data){
     if (err) {
       console.error(err);
@@ -46,10 +32,11 @@ var cb = {
       // session.userId = data.user.id;
       // session.token = data.user.token;
       data.user.current_user = true;
+      $('#loginMessage').html("Hello " + data.user.email);
       // api.getUser(cb.getUserCB);
       console.log("login response:", data);
-      }
-    },
+    }
+  },
 
 
   logoutCB: function(err, data) {
@@ -87,35 +74,13 @@ var cb = {
     }
   },
 
-
-//   var items = [];
-
-//    $.each(data, function(i, item) {
-
-//           items.push('<li><a href="yourlink?id=' + item.UserID + '">' + item.Username + '</a></li>');
-
-//    });  // close each()
-
-//    $('#yourUl').append( items.join('') );
-
-// var $movieList = $('#movies');
-
-
-//   var moviesURL = 'http://localhost:3000/movies';
-//   $('#movies_button').on('click', function(event){
-//     event.preventDefault();
-
-//     var moviesResponseHandler  = function(moviesData){
-//       console.log('moviesData is ' + moviesData);
-//       var  movies = JSON.parse(moviesData);
-//       console.log('movies are ' + movies);
-//       movies.forEach(function(movie){
-//         $movieList.append('<li>' + movie.name + '</li>');
-//       });
-//     };
-//     requestPromise.done(moviesResponseHandler);
-//     requestPromise.fail(function(){
-//       console.error('Error: Ajax request for ' + moviesURL);
-//     }); // end of requestPromise.fails
-
+  // getUserCB: function(err, data){
+  //   if (err) {
+  //     console.log(err);
+  //   } else {
+  //     $('#loginMessage').html("Hello " + data.email);
+  //     console.log('Hello');
+  //     console.log(data.email);
+  //   }
+  // },
 };
