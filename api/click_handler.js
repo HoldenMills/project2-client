@@ -38,7 +38,6 @@ $(document).ready (function() {
     e.preventDefault();
     var credentials = wrap('credentials', form2object(this));
     api.login(credentials, cb.loginCB);
-    $('.loginMessage').show();
   }),
 
   $('#logoutButton').on('click', function (e) {

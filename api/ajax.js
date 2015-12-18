@@ -45,42 +45,4 @@ url: 'http://localhost:3000',
      dataType: 'json'
     }, callback);
   },
-
-  newFutureTrip: function newFutureList(future_trip_params, callback) {
-    this.ajax({
-      method: 'POST',
-      // url: 'http://httpbin.org/post',
-      url: this.url + '/future_trips',
-      contentType: 'application/json; charset=utf-8',
-      data: JSON.stringify(future_trip_params),
-      dataType: 'json',
-      headers: {
-        Authorization: "Token token=" + token
-      }
-    }, callback);
-  },
-
-  showFutureTrips: function(callback) {
-    this.ajax({
-      method: 'GET',
-      url: this.url + '/future_trips',
-      contentType: 'application/json; charset=utf-8',
-      dataType: 'json',
-      headers: {
-        Authorization: "Token token=" + token
-      }
-    }, callback);
-  },
-
-  deleteFutureTrip: function(id, callback) {
-    this.ajax({
-      method: 'DELETE',
-      url: this.url + "/future_trips/" + id,
-      // contentType: 'application/json; charset=utf-8',
-      // dataType: 'json',
-      headers: {
-        Authorization: "Token token=" + token
-      }
-    }, callback);
-  }
 };

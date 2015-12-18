@@ -11,23 +11,25 @@ var cb = {
 
   registerCB: function(err, data){
     if (err) {
+      $('#registerMessage').html("Surprise! Something went wrong. Please refresh and try again.");
       console.error(err);
     } else {
+      $('#registerMessage').html("Hello New User " + data.user.email);
       console.log(data);
+      ux.afterRegister();
     }
   },
 
   loginCB: function(err, data){
     if (err) {
       console.error("error", err);
-      // $(".user-messages").html("<strong>Error! Login fail!</strong>");
+      $("#loginMessage").html("<strong>Error! Login fail!</strong>");
     } else {
         // $('.token').val(data.user.token);
         // $('.id').val(data.user.id);
         console.log(data.user.token);
         session.token = data.user.token;
         session.userId = data.user.id;
-      // api.getProfile(cb.getProfileCB);
       // token = data.user.token;
       // session.userId = data.user.id;
       // session.token = data.user.token;
@@ -35,42 +37,16 @@ var cb = {
       $('#loginMessage').html("Hello " + data.user.email);
       // api.getUser(cb.getUserCB);
       console.log("login response:", data);
+      ux.afterLogin();
     }
   },
-
 
   logoutCB: function(err, data) {
     if (err) {
       console.error(err);
     } else {
-      console.log("success:", data);
-    }
-  },
-
-  newFutureTripCB: function(err, data) {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log('working',data);
-    }
-  },
-
-  showFutureTripsCB: function(err, data) {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log(data);
-      var myHTML = cb.allFutureTripsTemplate({future_trips: data.future_trips});
-      $('#futureList').append(myHTML);
-      ux.viewFuture();
-    }
-  },
-
-  deleteFutureTripCB: function(err, data) {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log(data);
+      $('#logoutMessage').html("Goodbye!");
+      console.log("success:");
     }
   },
 
